@@ -1,0 +1,22 @@
+server {
+    listen       80 default_server;
+    server_name  _;
+
+    location / {
+        proxy_pass https://medium.com;
+        proxy_ssl_server_name on;
+        proxy_set_header Accept-Encoding "";
+        sub_filter 'miro.medium.com' 'miro.${DOMAIN}';
+        sub_filter_once off;
+    }
+}
+
+server {
+    listen       80;
+    server_name  miro.${DOMAIN};
+
+    location / {
+        proxy_pass https://miro.medium.com;
+        proxy_ssl_server_name on;
+    }
+}
