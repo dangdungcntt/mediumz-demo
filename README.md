@@ -6,7 +6,7 @@ Medium.com reversed proxy demo.
 
 ### Docker
 
-Using [OrbStack](https://orbstack.dev/) for auto configuring HTTPS from container name.
+Using [OrbStack](https://orbstack.dev/) to automatically configure HTTPS based on the container name.
 
 ```bash
 docker build -t mediumz-demo .
